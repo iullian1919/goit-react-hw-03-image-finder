@@ -1,16 +1,23 @@
 import React from 'react';
 import classes from './Modal.module.css';
+import PropTypes from 'prop-types';
 
-const Modal = ({ isOpen, onClose, imageUrl }) => {
-  if (!isOpen) return null;
-
+const Modal = ({ isOpen, onClose, largeImageURL }) => {
   return (
-    <div className={classes.overlay} onClick={onClose}>
-      <div className={classes.modal}>
-        <img src={imageUrl} alt="" />
+    isOpen && (
+      <div className={classes.overlay} onClick={onClose}>
+        <div className={classes.modal}>
+          <img src={largeImageURL} alt="Large" />
+        </div>
       </div>
-    </div>
+    )
   );
+};
+
+Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  largeImageURL: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 export default Modal;

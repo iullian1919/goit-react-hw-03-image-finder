@@ -51,10 +51,6 @@ const App = () => {
     setPage(prevPage => prevPage + 1);
   };
 
-  const handleImageClick = image => {
-    setSelectedImage(image.largeImageURL);
-  };
-
   const handleCloseModal = () => {
     setSelectedImage(null);
   };
